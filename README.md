@@ -17,8 +17,8 @@ You can use the build in REPL to test your functionality.
 ## Getting Started
 
 * Fork and clone this repository
-* Run `npm install` to install dependencies
-* `npm start` - run the REPL
+* Run `yarn install` to install dependencies
+* `yarn start` - run the REPL
 
 ## Requirements
 
