@@ -53,9 +53,37 @@ function show (id) {
 }
 function update (id, params) {
   // find the TODO with this id and update it's params. console log the result.
+  var query = {_id : id}
+  var newUpdate = {
+    $set: {
+      name: params.name,
+      description: params.description,
+      completed: params.completed
+     }}
+  Todo.findOneAndUpdate(query, newUpdate, function(err, data) {
+    if (err) {
+      console.error(err)
+    } else {
+      console.log(data);
+    }
+  })
+
 }
 function destroy (id) {
   // find the TODO with this id and destroy it. console log success/failure.
+  var query = {_id : id}
+
+  Todo.findOneAndRemove(query, function(err, data) {
+    if (err) {
+      console.error(err)
+    } else {
+      if (data) {
+        console.log('destroy successful');
+      } else {
+        console.log('destroy failed');
+      }
+    }
+  })
 }
 
 module.exports = {
